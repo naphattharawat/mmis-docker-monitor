@@ -4,7 +4,7 @@
 </div>
 <div class="row" style="width: 99%;margin-left: 0.5%;margin-top: 20px;">
   <div *ngFor=" let item of lists " class="col-md-3  ">
-    <div class="box" [ngClass]="{ 'status-run': item.State=='running','status-exited': item.State=='exited'}">
+    <div class="box" [ngClass]="{ 'status-run': item.State=='running','status-exited': item.State=='exited','status-exited': item.State=='dead'}">
       <div class="text ">
         <label>
           {{item.Names[0]}}
