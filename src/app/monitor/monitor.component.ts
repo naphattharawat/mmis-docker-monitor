@@ -1,7 +1,8 @@
 import { MonitorService } from './../monitor.service';
 import { Component, OnInit } from '@angular/core';
 import * as _ from 'lodash';
-const isOnline = require('is-online');
+import * as isOnline from 'is-online';
+// const isOnline = require('is-online');
 @Component({
   selector: 'app-monitor',
   templateUrl: './monitor.component.html',
