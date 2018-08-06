@@ -18,6 +18,7 @@ export class MonitorComponent implements OnInit {
     // clearTimeout(timer);
     // timer = setTimeout(async () => {
     setInterval(async () => {
+      this.lists = [];
       await this.getContainers('203.157.103.125:443');
       await this.getContainers('203.157.103.124:443');
       await this.getContainers('203.157.103.126:443');
