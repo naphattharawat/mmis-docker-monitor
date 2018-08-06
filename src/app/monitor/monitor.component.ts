@@ -14,8 +14,9 @@ export class MonitorComponent implements OnInit {
 
   async ngOnInit() {
     while (true) {
-
-      setTimeout(async () => {
+      let timer;
+      clearTimeout(timer);
+      timer = setTimeout(async () => {
         await this.getContainers('203.157.103.125:443');
         await this.getContainers('203.157.103.124:443');
         await this.getContainers('203.157.103.126:443');
