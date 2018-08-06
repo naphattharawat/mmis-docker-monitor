@@ -1,3 +1,7 @@
+<div [ngClass]="{ 'status-run': internet,'status-exited': !internet}">
+  <div *ngIf="internet">Online</div>
+  <div *ngIf="!internet">Disconnect</div>
+</div>
 <div class="row" style="width: 99%;margin-left: 0.5%;margin-top: 20px;">
   <div *ngFor=" let item of lists " class="col-md-3  ">
     <div class="box" [ngClass]="{ 'status-run': item.State=='running','status-exited': item.State=='exited'}">
