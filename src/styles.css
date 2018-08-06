@@ -1,1 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
+.status-run {
+    background-color: green;
+    color: white;
+}
+.status-stop {
+    background-color: black;
+    color: gray;
+}
+.status-exited {
+    background-color: red;
+    color: yellow;
+}
+.box {
+    text-align: center;
+    height: 80px;
+    padding: -2px;
+    display: table;
+    border-radius: 5px;
+    margin: 2px;
+    width: 100%;
+}
+.text {
+    display: table-cell;
+    justify-content: center;
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    font-size: 1.3rem;
+}
