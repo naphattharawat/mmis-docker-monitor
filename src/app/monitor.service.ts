@@ -11,7 +11,7 @@ export class MonitorService {
   ) { }
 
   async getContainers(ip) {
-    const url = `http://${ip}/containers/json`;
+    const url = `http://${ip}/containers/json?all=1`;
     const resp = await this.http.get(`${url}`).toPromise();
     return resp;
   }
