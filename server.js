@@ -29,7 +29,7 @@ app.use(function (err, req, res, next) {
     res.send({ ok: false, error: err.message })
 });
 
-let port = +process.env.PORT;
+let port = +process.env.PORT || 80;
 
 app.listen(port, function () {
     console.log(`docker-monitor listening on port ${port}!`)
