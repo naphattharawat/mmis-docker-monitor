@@ -36,8 +36,10 @@ export class MonitorComponent implements OnInit {
 
   pushData(data) {
     for (const v of data) {
-      v.Names[0] = v.Names[0].substring(1, v.Names[0].length);
-      this.lists.push(v);
+      if (v.names[0].substring(1, 9) !== 'portainer') {
+        v.Names[0] = v.Names[0].substring(1, v.Names[0].length);
+        this.lists.push(v);
+      }
     }
   }
 }
