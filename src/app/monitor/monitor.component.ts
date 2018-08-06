@@ -57,7 +57,9 @@ export class MonitorComponent implements OnInit {
   pushData(data) {
     for (const v of data) {
       if (v.Names[0].substring(1, 10) !== 'portainer') {
-        const idx = _.findIndex(this.lists, { Id: v.Id });
+        const idx = _.findIndex(this.lists, { 'Id': v.Id });
+        console.log(idx, v.Id);
+
         if (idx > -1) {
           this.lists[idx].Status = v.Status;
           this.lists[idx].State = v.State;
