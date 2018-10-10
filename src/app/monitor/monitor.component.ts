@@ -38,11 +38,13 @@ export class MonitorComponent implements OnInit {
   async getData() {
     await this.checkConnect();
     await this.getContainers('203.157.103.125:443');
+    await this.getContainers('203.157.103.136:443');
     await this.getContainers('203.157.102.76:443');
     await this.getContainers('203.157.103.126:443');
-    await this.getContainers('203.157.103.127:443');
+    // await this.getContainers('203.157.103.127:443');
     await this.getContainers('203.157.103.128:443');
     await this.getContainers('203.157.103.129:443');
+    await this.getContainers('203.157.103.137:443');
     await this.getContainers('203.157.103.124:443');
   }
   async getContainers(ip) {
