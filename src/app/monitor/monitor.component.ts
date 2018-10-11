@@ -45,6 +45,7 @@ export class MonitorComponent implements OnInit {
     await this.getContainers('203.157.103.128:443');
     await this.getContainers('203.157.103.129:443');
     await this.getContainers('203.157.103.137:443');
+    await this.getContainers('203.157.103.138:443');
     await this.getContainers('203.157.103.124:443');
   }
   async getContainers(ip) {
