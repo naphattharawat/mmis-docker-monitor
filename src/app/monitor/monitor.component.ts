@@ -22,10 +22,11 @@ export class MonitorComponent implements OnInit {
     setInterval(async () => {
       await this.getData();
     }, 5000);
-    this.getTrello();
+
+    // this.getTrello();
     setInterval(async () => {
-      await this.getData();
-    }, 10000);
+      await this.getTrello();
+    }, 15000);
 
 
 
