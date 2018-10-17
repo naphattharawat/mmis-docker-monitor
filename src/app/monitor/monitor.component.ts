@@ -76,18 +76,19 @@ export class MonitorComponent implements OnInit {
   }
 
   pushData(data, ip) {
-    for (const i of this.lists) {
-      // const idp = _.findIndex()
-      if (i.ip === ip.substring(0, ip.length - 4)) {
-        const idx = _.findIndex(this.lists, { 'Id': i.id });
-        this.lists.splice(idx, 1);
-      }
-    }
+    // for (const i of this.lists) {
+    //   // const idp = _.findIndex()
+    //   if (i.ip === ip.substring(0, ip.length - 4)) {
+    //     const idx = _.findIndex(this.lists, { 'Id': i.id });
+    //     this.lists.splice(idx, 1);
+    //   }
+    // }
     for (const v of data) {
       if (v.Names[0].substring(1, 10) !== 'portainer') {
         const idx = _.findIndex(this.lists, { 'Id': v.Id });
         // v.ip = ip;
         v.ip = ip.substring(0, ip.length - 4);
+        // if(v.)
         if (idx > -1) {
           this.lists[idx].Status = v.Status;
           this.lists[idx].State = v.State;
