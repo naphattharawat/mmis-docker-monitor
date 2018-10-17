@@ -86,19 +86,21 @@ export class MonitorComponent implements OnInit {
     for (const v of data) {
       if (v.Names[0].substring(1, 10) !== 'portainer') {
         const idx = _.findIndex(this.lists, { 'Id': v.Id });
-        if (this.lists[idx].State != 'removing') {
-          v.ip = ip.substring(0, ip.length - 4);
-          // if(v.)
-          if (idx > -1) {
+
+        v.ip = ip.substring(0, ip.length - 4);
+        // if(v.)
+        if (idx > -1) {
+          if (this.lists[idx].State !== 'removing') {
             this.lists[idx].Status = v.Status;
             this.lists[idx].State = v.State;
           } else {
-            v.Names[0] = v.Names[0].substring(1, v.Names[0].length);
-            this.lists.push(v);
+            this.lists.splice(idx, 1);
           }
         } else {
-          this.lists.splice(idx, 1);
+          v.Names[0] = v.Names[0].substring(1, v.Names[0].length);
+          this.lists.push(v);
         }
+
         // v.ip = ip;
       }
     }
