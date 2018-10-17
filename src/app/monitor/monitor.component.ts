@@ -97,8 +97,10 @@ export class MonitorComponent implements OnInit {
             this.lists.splice(idx, 1);
           }
         } else {
-          v.Names[0] = v.Names[0].substring(1, v.Names[0].length);
-          this.lists.push(v);
+          if (v.State !== 'removing') {
+            v.Names[0] = v.Names[0].substring(1, v.Names[0].length);
+            this.lists.push(v);
+          }
         }
 
         // v.ip = ip;
