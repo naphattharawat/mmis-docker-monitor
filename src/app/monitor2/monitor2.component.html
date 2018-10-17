@@ -4,17 +4,18 @@
   <div *ngIf="!internet" style="padding-top: 10px;font-size: 30px;">Disconnect</div>
 </div>
 <div class="row" style="width: 99%;margin-left: 0.5%;margin-top: 20px;">
-  <div *ngFor=" let item of lists " class="col-md-3  ">
+  <div *ngFor=" let item of lists " class="col-md-2 ">
     <div class="box" [ngClass]="{
     'status-run': item.State=='running',
     'status-exited': item.State=='exited',
     'status-dead': item.State=='dead'}">
-      <div class="text ">
+      <div class="text" style="font-size: 1.5rem;">
         <label>
           {{item.Names[0]}}
         </label>
         <br>
-        <label style="font-size: 0.5rem;padding-right: 5px;">{{item.ip}}</label>
+        <label style="font-size: 0.5rem;">{{item.ip}}</label>
+        <br>
         <label style="font-size: 0.5rem">{{item.Status}}</label>
       </div>
     </div>

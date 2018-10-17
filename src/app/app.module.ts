@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { MonitorComponent } from './monitor/monitor.component';
 import { MonitorService } from './monitor.service';
 import { ClarityModule } from '@clr/angular';
+import { Monitor2Component } from './monitor2/monitor2.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MonitorComponent
+    MonitorComponent,
+    Monitor2Component
   ],
   imports: [
     BrowserModule,
