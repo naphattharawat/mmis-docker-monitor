@@ -11,6 +11,14 @@
     background-color: red;
     color: yellow;
 }
+.status-dead {
+    background-color: red;
+    color: yellow;
+}
+.trello {
+    background-color: yellow;
+    color: black;
+}
 .box {
     text-align: center;
     height: 80px;
@@ -19,7 +27,10 @@
     border-radius: 5px;
     margin: 2px;
     width: 100%;
+    
 }
+
+
 .text {
     display: table-cell;
     justify-content: center;
@@ -27,4 +38,40 @@
     width: 100%;
     height: 100%;
     font-size: 1.3rem;
+    padding: 2px;
+}
+.textT {
+    display: inline-block;
+    /* justify-content: center; */
+    /* vertical-align: middle; */
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    font-size: 0.7rem;
+    padding: 5px;
+}
+.boxT {
+    text-align: center;
+    height: 80px;
+    /* min-height: 80px; */
+    padding: -2px;
+    display: inline-block;
+    border-radius: 0px 0px 5px 5px;
+    /* margin-left: 2px;
+    margin-right: 2px; */
+    width: 100%;
+    
+}
+.head{
+    color:white;
+    /* border: black solid 1px; */
+    /* display:inline-block; */
+    /* float: left; */
+    /* margin-top: 2px; */
+    width: 100%;
+    height: 25%;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px 5px 0px 0px;
+    background-color: black;
 }

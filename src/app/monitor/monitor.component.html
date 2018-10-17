@@ -1,13 +1,43 @@
-<div [ngClass]="{ 'status-run': internet,'status-exited': !internet}">
-  <div *ngIf="internet">Online</div>
-  <div *ngIf="!internet">Disconnect</div>
+<div style="height: 50px;text-align: center;" [ngClass]=" { 'status-run' : internet,'status-exited':
+  !internet}">
+  <div *ngIf="internet" style="padding-top: 10px;font-size: 30px;">Online</div>
+  <div *ngIf="!internet" style="padding-top: 10px;font-size: 30px;">Disconnect</div>
 </div>
 <div class="row" style="width: 99%;margin-left: 0.5%;margin-top: 20px;">
   <div *ngFor=" let item of lists " class="col-md-3  ">
-    <div class="box" [ngClass]="{ 'status-run': item.State=='running','status-exited': item.State=='exited','status-exited': item.State=='dead'}">
+    <div class="box" [ngClass]="{
+    'status-run': item.State=='running',
+    'status-exited': item.State=='exited',
+    'status-dead': item.State=='dead'}">
       <div class="text ">
         <label>
-          {{item.Names[0]}}
+          {{item.Names[0]}} {{item.State}}
+        </label>
+        <br>
+        <label style="font-size: 0.5rem;padding-right: 5px;">{{item.ip}}</label>
+        <label style="font-size: 0.5rem">{{item.Status}}</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="text-align: center;" [ngClass]=" { 'status-run' : internet,'status-exited':
+  !internet}">
+  <div style="padding-top: 8px;font-size: 30px;">MMIS LIST BUG</div>
+</div>
+<div class="row" style="width: 99%;margin-left: 0.5%;margin-top: 20px;">
+  <div *ngFor=" let item of listTrellos " class="col-md-3  ">
+    <div class="head" [style.background]="item.labels[0].color">
+      <div style="float: left">
+        {{item.labels[0].name}}
+      </div>
+      <div style="float: right">
+        {{item.member[0].initials}}
+      </div>
+    </div>
+    <div class="boxT trello">
+      <div class="textT ">
+        <label>
+          {{item.name}}
         </label>
         <br>
         <label style="font-size: 0.5rem;padding-right: 5px;">{{item.ip}}</label>
