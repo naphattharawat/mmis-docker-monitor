@@ -5,11 +5,11 @@
 </div>
 <div class="row" style="width: 99%;margin-left: 0.5%;margin-top: 20px;">
   <div *ngFor=" let item of lists " class="col-md-2 ">
-    <div class="box" [ngClass]="{
+    <div class="box2" [ngClass]="{
     'status-run': item.State=='running',
     'status-exited': item.State=='exited',
     'status-dead': item.State=='dead'}">
-      <div class="text" style="font-size: 1.5rem;">
+      <div class="text2" style="font-size: 1rem;">
         <label>
           {{item.Names[0]}}
         </label>
