@@ -80,7 +80,7 @@ export class MonitorComponent implements OnInit {
       // const idp = _.findIndex()
       if (i.ip === ip.substring(0, ip.length - 4)) {
         const idx = _.findIndex(this.lists, { 'Id': i.id });
-        this.lists.splice(idx, 0);
+        this.lists.splice(idx, 1);
       }
     }
     for (const v of data) {
