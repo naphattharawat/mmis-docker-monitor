@@ -99,7 +99,7 @@ export class Monitor2Component implements OnInit {
             }
           }
         } else {
-          if (v.State !== 'removing' || v.State !== 'running') {
+          if (v.State !== 'removing' && v.State !== 'running') {
             v.Names[0] = v.Names[0].substring(1, v.Names[0].length);
             this.lists.push(v);
           }
