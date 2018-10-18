@@ -76,13 +76,7 @@ export class Monitor2Component implements OnInit {
   }
 
   pushData(data, ip) {
-    // for (const i of this.lists) {
-    //   // const idp = _.findIndex()
-    //   if (i.ip === ip.substring(0, ip.length - 4)) {
-    //     const idx = _.findIndex(this.lists, { 'Id': i.id });
-    //     this.lists.splice(idx, 1);
-    //   }
-    // }
+
     for (const v of data) {
       if (v.Names[0].substring(1, 10) !== 'portainer') {
         const idx = _.findIndex(this.lists, { 'Id': v.Id });
@@ -106,6 +100,13 @@ export class Monitor2Component implements OnInit {
         }
 
         // v.ip = ip;
+      }
+    }
+    for (const i of this.lists) {
+      // const idp = _.findIndex()
+      if (i.State === 'running' || i.State === 'removing') {
+        const idx = _.findIndex(this.lists, { 'Id': i.Id });
+        this.lists.splice(idx, 1);
       }
     }
   }
