@@ -17,13 +17,13 @@ export class MonitorService {
   }
 
   async getTrelloList(cardId) {
-    const url = `https://api.trello.com/1/lists/${cardId}/cards?key=6c45ee2949198256d12ed13583f914f7&token=663c91e3ef66e8a51a47ab47a8ba03d6f3cba06eb601bf65f217410d4dffd859&fields=id,name,badges,labels,idMembers`;
+    const url = `https://api.trello.com/1/lists/${cardId}/cards?key=6c45ee2949198256d12ed13583f914f7&token=940de963a5fc9799ec812c8a0232fdf6e25c282b7764ba6eac3f5d692dc33d70&fields=id,name,badges,labels,idMembers`;
     const resp = await this.http.get(`${url}`).toPromise();
     return resp;
   }
 
   async getTrelloMember(memberId) {
-    const url = `https://api.trello.com/1/members/${memberId}?fields=fullName,initials,username,status&key=6c45ee2949198256d12ed13583f914f7&token=663c91e3ef66e8a51a47ab47a8ba03d6f3cba06eb601bf65f217410d4dffd859`;
+    const url = `https://api.trello.com/1/members/${memberId}?fields=fullName,initials,username,status&key=6c45ee2949198256d12ed13583f914f7&token=940de963a5fc9799ec812c8a0232fdf6e25c282b7764ba6eac3f5d692dc33d70`;
     const resp = await this.http.get(`${url}`).toPromise();
     return resp;
   }

@@ -25,7 +25,7 @@ export class Monitor2Component implements OnInit {
     this.getTrello();
     setInterval(async () => {
       await this.getTrello();
-    }, 15000);
+    }, 20000);
 
 
 
