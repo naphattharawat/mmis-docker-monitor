@@ -91,7 +91,7 @@ export class Monitor2Component implements OnInit {
         // if(v.)
         if (idx > -1) {
           if (this.lists[idx].State !== 'running') {
-            if (this.lists[idx].State !== 'removing') {
+            if (this.lists[idx].State !== 'removing' || this.lists[idx].State !== 'running') {
               this.lists[idx].Status = v.Status;
               this.lists[idx].State = v.State;
             } else {
@@ -99,7 +99,7 @@ export class Monitor2Component implements OnInit {
             }
           }
         } else {
-          if (v.State !== 'removing' && v.State !== 'running') {
+          if (v.State !== 'removing' || v.State !== 'running') {
             v.Names[0] = v.Names[0].substring(1, v.Names[0].length);
             this.lists.push(v);
           }
