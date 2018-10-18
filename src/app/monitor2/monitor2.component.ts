@@ -90,11 +90,13 @@ export class Monitor2Component implements OnInit {
         v.ip = ip.substring(0, ip.length - 4);
         // if(v.)
         if (idx > -1) {
-          if (this.lists[idx].State !== 'removing') {
-            this.lists[idx].Status = v.Status;
-            this.lists[idx].State = v.State;
-          } else {
-            this.lists.splice(idx, 1);
+          if (this.lists[idx].State !== 'running') {
+            if (this.lists[idx].State !== 'removing') {
+              this.lists[idx].Status = v.Status;
+              this.lists[idx].State = v.State;
+            } else {
+              this.lists.splice(idx, 1);
+            }
           }
         } else {
           if (v.State !== 'removing') {
