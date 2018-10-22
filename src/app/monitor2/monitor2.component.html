@@ -22,12 +22,35 @@
     </div>
   </div>
 </div>
-<div style="text-align: center;margin-top:10px;height:200px;" [ngClass]=" { 'status-run' : internet,'status-exited':
+<div style="text-align: center;margin-top:10px;height:180px;" [ngClass]=" { 'status-run' : internet,'status-exited':
   !internet}">
-  <div style="padding-top :1em;font-size: 6em">MMIS LIST BUG</div>
+  <div style="padding-top :1em;font-size: 6em">MMIS LIST</div>
 </div>
 <div class="row" style="width: 99%;margin-left: 0.5%;margin-top: 20px;">
   <div *ngFor=" let item of listTrellos " class="col-md-3  ">
+    <div class="headt2" [style.background]="item.labels[0].color">
+      <div style="float: left;margin-top: 60px;">
+        {{item.labels[0].name}}
+      </div>
+      <div style="float: right;margin-top: 60px;">
+        {{item.member[0].initials}}
+      </div>
+    </div>
+    <div class="boxT2 trello">
+      <div class="textT2">
+        <label>
+          {{item.name}}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="text-align: center;margin-top:10px;height:180px;" [ngClass]=" { 'status-run' : internet,'status-exited':
+  !internet}">
+  <div style="padding-top :1em;font-size: 6em">MMIS Inprogress</div>
+</div>
+<div class="row" style="width: 99%;margin-left: 0.5%;margin-top: 20px;">
+  <div *ngFor=" let item of listTrellosIn " class="col-md-3  ">
     <div class="headt2" [style.background]="item.labels[0].color">
       <div style="float: left;margin-top: 60px;">
         {{item.labels[0].name}}

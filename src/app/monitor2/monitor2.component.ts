@@ -10,6 +10,7 @@ import * as isOnline from 'is-online';
 export class Monitor2Component implements OnInit {
   lists = [];
   listTrellos = [];
+  listTrellosIn = [];
   internet: boolean;
   constructor(
     private monitorService: MonitorService
@@ -22,14 +23,13 @@ export class Monitor2Component implements OnInit {
       await this.getData();
     }, 5000);
 
-    this.getTrello();
+    await this.getTrello();
+    await this.getTrelloIn();
     setInterval(async () => {
       await this.getTrello();
+      await this.getTrelloIn();
     }, 20000);
 
-
-
-    // }
     // tslint:disable-next-line:max-line-length
     // const rs = [{ 'Id': 'fd5f1a65c2ae8a4d7d7715517031ed0294b0a4075f5eb3f195af76adfe044d85', 'Names': ['/mmis-test'], 'Image': 'mophos/mmis', 'ImageID': 'sha256:aef811af5cfd631b1a375edaa4f49551974cf5908bf7ae4a0c5c8935556e75d4', 'Command': '/bin/sh -c ', 'Created': 1533484080, 'Ports': [{ 'IP': '0.0.0.0', 'PrivatePort': 80, 'PublicPort': 8080, 'Type': 'tcp' }], 'Labels': { 'maintainer': 'Satit Rianpit <rianpit@gmail.com>' }, 'State': 'running', 'Status': 'Up About an hour', 'HostConfig': { 'NetworkMode': 'default' }, 'NetworkSettings': { 'Networks': { 'bridge': { 'IPAMConfig': null, 'Links': null, 'Aliases': null, 'NetworkID': '0fa9a59643d24afa56afc9a97d3616d665bb90209ad5250524cb2a9c3fe698da', 'EndpointID': '5df24a2d04569c5bde29e52d0d217b84777ce267f89086f21777c935a3632331', 'Gateway': '172.17.0.1', 'IPAddress': '172.17.0.3', 'IPPrefixLen': 16, 'IPv6Gateway': '', 'GlobalIPv6Address': '', 'GlobalIPv6PrefixLen': 0, 'MacAddress': '02:42:ac:11:00:03', 'DriverOpts': null } } }, 'Mounts': [{ 'Type': 'bind', 'Source': '/root/mmis-config-test', 'Destination': '/home/mmis/mmis-config', 'Mode': '', 'RW': true, 'Propagation': 'rprivate' }, { 'Type': 'bind', 'Source': '/root/uploaded', 'Destination': '/home/mmis/uploaded', 'Mode': '', 'RW': true, 'Propagation': 'rprivate' }] }, { 'Id': '7c199574a0a72e9f502be190885b996c1172c88bfc1d20c79fadd8171e80c54a', 'Names': ['/mmis-samutsakhon'], 'Image': 'mophos/mmis', 'ImageID': 'sha256:aef811af5cfd631b1a375edaa4f49551974cf5908bf7ae4a0c5c8935556e75d4', 'Command': '', 'Created': 1533484078, 'Ports': [{ 'IP': '0.0.0.0', 'PrivatePort': 80, 'PublicPort': 80, 'Type': 'tcp' }], 'Labels': { 'maintainer': 'Satit Rianpit <rianpit@gmail.com>' }, 'State': 'exited', 'Status': 'Exited About an hour', 'HostConfig': { 'NetworkMode': 'default' }, 'NetworkSettings': { 'Networks': { 'bridge': { 'IPAMConfig': null, 'Links': null, 'Aliases': null, 'NetworkID': '0fa9a59643d24afa56afc9a97d3616d665bb90209ad5250524cb2a9c3fe698da', 'EndpointID': '9954739a3f82b786396768bbe68ae986e1ece426262e02720bea782819aaec03', 'Gateway': '172.17.0.1', 'IPAddress': '172.17.0.2', 'IPPrefixLen': 16, 'IPv6Gateway': '', 'GlobalIPv6Address': '', 'GlobalIPv6PrefixLen': 0, 'MacAddress': '02:42:ac:11:00:02', 'DriverOpts': null } } }, 'Mounts': [{ 'Type': 'bind', 'Source': '/root/mmis-config-samut', 'Destination': '/home/mmis/mmis-config', 'Mode': '', 'RW': true, 'Propagation': 'rprivate' }, { 'Type': 'bind', 'Source': '/root/uploaded', 'Destination': '/home/mmis/uploaded', 'Mode': '', 'RW': true, 'Propagation': 'rprivate' }] }, { 'Id': '7c199574a0a72e9f502be190885b996c1172c88bfc1d20c79fadd8171e80c54a', 'Names': ['/mmis-samutsakhon'], 'Image': 'mophos/mmis', 'ImageID': 'sha256:aef811af5cfd631b1a375edaa4f49551974cf5908bf7ae4a0c5c8935556e75d4', 'Command': '', 'Created': 1533484078, 'Ports': [{ 'IP': '0.0.0.0', 'PrivatePort': 80, 'PublicPort': 80, 'Type': 'tcp' }], 'Labels': { 'maintainer': 'Satit Rianpit <rianpit@gmail.com>' }, 'State': 'stop', 'Status': 'Exited About an hour', 'HostConfig': { 'NetworkMode': 'default' }, 'NetworkSettings': { 'Networks': { 'bridge': { 'IPAMConfig': null, 'Links': null, 'Aliases': null, 'NetworkID': '0fa9a59643d24afa56afc9a97d3616d665bb90209ad5250524cb2a9c3fe698da', 'EndpointID': '9954739a3f82b786396768bbe68ae986e1ece426262e02720bea782819aaec03', 'Gateway': '172.17.0.1', 'IPAddress': '172.17.0.2', 'IPPrefixLen': 16, 'IPv6Gateway': '', 'GlobalIPv6Address': '', 'GlobalIPv6PrefixLen': 0, 'MacAddress': '02:42:ac:11:00:02', 'DriverOpts': null } } }, 'Mounts': [{ 'Type': 'bind', 'Source': '/root/mmis-config-samut', 'Destination': '/home/mmis/mmis-config', 'Mode': '', 'RW': true, 'Propagation': 'rprivate' }, { 'Type': 'bind', 'Source': '/root/uploaded', 'Destination': '/home/mmis/uploaded', 'Mode': '', 'RW': true, 'Propagation': 'rprivate' }] }];
     // this.pushData(rs);
@@ -114,8 +114,39 @@ export class Monitor2Component implements OnInit {
   async getTrello() {
     try {
       const list: any = await this.monitorService.getTrelloList('5b5fd6c46b03b634243d5229');
-      // console.log(list);
+      const list2: any = await this.monitorService.getTrelloList('5b5fd79f5f9a865fbab7c562');
+      list.concat(list2);
+      const _list = _.uniq(list, 'id');
+      if (_list) {
+        for (const v of _list) {
+          const members = [];
+          if (v.idMembers.length) {
+            for (const i of v.idMembers) {
+              const member: any = await this.monitorService.getTrelloMember(i);
+              members.push(member);
+            }
+          } else {
+            members.push({
+              initials: ''
+            });
+          }
+          // if (members.length) {
+          v.member = members;
+          // }
+        }
+        this.listTrellos = _list;
+        console.log(_list);
 
+        // this.pushData(rs, ip);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  async getTrelloIn() {
+    try {
+      const list: any = await this.monitorService.getTrelloList('5b5fd6d0e62c8a0dea1fc9e4');
       if (list) {
         for (const v of list) {
           const members = [];
@@ -133,7 +164,7 @@ export class Monitor2Component implements OnInit {
           v.member = members;
           // }
         }
-        this.listTrellos = list;
+        this.listTrellosIn = list;
         console.log(list);
 
         // this.pushData(rs, ip);
