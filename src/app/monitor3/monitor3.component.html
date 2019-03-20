@@ -1,0 +1,70 @@
+<div style="text-align: center;margin-top:10px;height:200px;" [ngClass]=" { 'status-run' : internet,'status-exited':
+  !internet}">
+  <div *ngIf="internet" style="padding-top :1em;font-size: 6em">Online</div>
+  <div *ngIf="!internet" style="padding-top :1em;font-size: 6em">Disconnect</div>
+</div>
+
+<div class="row" style="width: 99%;margin-left: 0.5%;margin-top: 20px;">
+  <div *ngFor=" let item of lists " class="col-md-2 ">
+    <div class="box2" [ngClass]="{
+    'status-run': item.State=='running',
+    'status-exited': item.State=='exited',
+    'status-dead': item.State=='dead'}">
+      <div class="text2" style="font-size: 2rem;">
+        <label>
+          {{item.Names[0]}}
+        </label>
+        <!-- <br> -->
+        <label style="font-size: 0.5rem;">{{item.ip}}</label>
+        <br>
+        <label style="font-size: 0.5rem">{{item.Status}}</label>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="text-align: center;margin-top:10px;height:180px;" [ngClass]=" { 'status-run' : internet,'status-exited':
+  !internet}">
+  <div style="padding-top :1em;font-size: 6em">MMIS Inprogress</div>
+</div>
+<div class="row" style="width: 99%;margin-left: 0.5%;margin-top: 20px;">
+  <div *ngFor=" let item of listTrellosIn " class="col-md-3  ">
+    <div class="headt2" [style.background]="item.labels[0].color">
+      <div style="float: left;margin-top: 60px;">
+        {{item.labels[0].name}}
+      </div>
+      <div style="float: right;margin-top: 60px;">
+        {{item.member[0].initials}}
+      </div>
+    </div>
+    <div class="boxT2 trello">
+      <div class="textT2">
+        <label>
+          {{item.name}}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
+<div style="text-align: center;margin-top:10px;height:180px;" [ngClass]=" { 'status-run' : internet,'status-exited':
+  !internet}">
+  <div style="padding-top :1em;font-size: 6em">MMIS LIST</div>
+</div>
+<div class="row" style="width: 99%;margin-left: 0.5%;margin-top: 20px;">
+  <div *ngFor=" let item of listTrellos " class="col-md-3  ">
+    <div class="headt2" [style.background]="item.labels[0].color">
+      <div style="float: left;margin-top: 60px;">
+        {{item.labels[0].name}}
+      </div>
+      <div style="float: right;margin-top: 60px;">
+        {{item.member[0].initials}}
+      </div>
+    </div>
+    <div class="boxT2 trello">
+      <div class="textT2">
+        <label>
+          {{item.name}}
+        </label>
+      </div>
+    </div>
+  </div>
+</div>
